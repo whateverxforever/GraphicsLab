@@ -48,6 +48,30 @@ void plotLineHigh(int x0, int y0, int x1, int y1) {
 }
 
 void plotLine(int x0, int y0, int x1, int y1) {
+
+  int a0=x0, a1=x1, b0=y0, b1=y1;
+  if (x0 == x1) {
+    if (y0>y1) {
+      b0 = y1;
+      b1 = y0;
+    }
+    for (int i=b0; i<b1; i++) {
+      plotPixel(x0, i);
+    }
+    return;
+  }
+
+  if (y0 == y1) {
+    if (x0>x1) {
+      a0 = x1;
+      a1 = x0;
+    }
+    for (int i=a0; i<a1; i++) {
+      plotPixel(i, y0);
+    }
+    return;
+  }
+
   if (abs(y1-y0)<abs(x1-x0)) {
     if (x0>x1) {
       plotLineLow(x1, y1, x0, y0);
