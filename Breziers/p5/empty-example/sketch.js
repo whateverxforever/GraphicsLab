@@ -81,20 +81,18 @@ function makeShape(coordx, coordy) {
 }
 
 
+
 function setup() {
   createCanvas(600, 600);
   background(51);
   coords = [0, 600, 300, 600, 300, 0, 600, 0];
-
-  for (let i = 0; i < coords.length; i++) {
-    ellipse(300, 300, 20, 20);
-  }
 
 }
 
 
 function draw() {
 
-  brezier(0.001, 0, 600, 300, 600, 300, 0, 600, 0);
+  background(51);
+  brezier(0.01, 0, 600, 300, 600, 300, 0, mouseX, mouseY);
 
 }
