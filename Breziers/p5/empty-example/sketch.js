@@ -70,7 +70,7 @@ function brezier(Q, x1, y1, x2, y2, x3, y3, x4, y4) {
 
 function makeShape(coordx, coordy) {
 
-  stroke(255);
+  stroke(random(0, 255), random(0, 255), random(0, 255));
   noFill();
   beginShape();
   for (let i = 0; i < coordx.length; i++) {
@@ -89,10 +89,22 @@ function setup() {
 
 }
 
+function opp(x) {
+  let k = width / 2 - x;
+  return width / 2 + k;
+}
 
 function draw() {
 
   background(51);
-  brezier(0.01, 0, 600, 300, 600, 300, 0, mouseX, mouseY);
 
+
+  brezier(0.01, 216, 157, 382, 334, 105, 288, 245, 455);
+  brezier(0.01, opp(216), 157, opp(382), 334, opp(105), 288, opp(245), 455);
+  brezier(0.01, 216, 153, 256, 174, 362, 166, 382, 155);
+  brezier(0.01, 216, 153, 256, 174, 362, 166, 382, 155);
+  brezier(0.01, 216, 153, 251, 129, 367, 137, 382, 155);
+  brezier(0.01, 240, 449, 270, 466, 336, 466, 360, 450);
+
+  frameRate(0);
 }
