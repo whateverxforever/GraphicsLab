@@ -62,10 +62,12 @@
       [0, 0, 1]
     ];
 
-    let mat = t;
-    // let mat = multiply(t, s);
-    // mat = multiply(mat, r);
-
+    // let mat = t;
+    // let mat = s;
+    // let mat = r;
+    let mat = multiply(t, s);
+    mat = multiply(mat, r);
+    //
     return mat;
   }
 
