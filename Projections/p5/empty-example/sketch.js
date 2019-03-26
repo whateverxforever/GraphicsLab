@@ -18,11 +18,11 @@ function multiply(a, b) {
 
 
 let myShapeCoords = [
-  [0, 0, 0],
-  [300, 0, 0],
-  [100, 0, 400],
-  [0, 0, 500],
-  [50, -200, 50]
+  [-200, 0, 0],
+  [200, 0, 0],
+  [-200, 0, 200],
+  [200, 0, 200],
+  [0, -200, 0]
 ]
 
 let myShapeLinePairs = [
@@ -39,7 +39,6 @@ let myShapeLinePairs = [
 
 
 function drawShape3d(shape, lines) {
-  stroke(255);
   for (let i = 0; i < lines.length; i++) {
     let x = lines[i];
     let a, b;
@@ -62,9 +61,9 @@ function drawPerspective(points, lines, o_view = false) {
   ];
 
   let isoMat = [
-    [sin(120), 0, -cos(120), 0],
-    [0, 1, 0, 0],
-    [-sin(120), 0, -cos(120), 0],
+    [sin(45), -cos(45), 0, 0],
+    [1 / sqrt(6), 1 / sqrt(6), -sqrt(6) / 3, 0],
+    [1 / sqrt(3), 1 / sqrt(3), 1 / sqrt(3), 0],
     [0, 0, 0, 1]
   ];
 
@@ -78,11 +77,12 @@ function drawPerspective(points, lines, o_view = false) {
       [1]
     ];
     let newPoints = multiply(perspMat, temp);
-    if (o_view == true) {
-      console.log(newPoints);
-      newPoints = multiply(isoMat, newPoints);
-      console.log(newPoints);
-    }
+    // let newPoints = multiply(isoMat, temp);
+    // if (o_view == true) {
+    //   console.log(newPoints);
+    // newPoints = multiply(isoMat, newPoints);
+    //   console.log(newPoints);
+    // }
     let x = [newPoints[0] / newPoints[3], newPoints[1] / newPoints[3]];
     perspectiveShape.push(x);
   }
@@ -99,7 +99,16 @@ function setup() {
 
   translate(width / 2, height / 2);
   angleMode(DEGREES);
-  drawPerspective(myShapeCoords, myShapeLinePairs, o_view = true);
+
+
+
+  strokeWeight(2);
+  stroke(255);
+  drawPerspective(myShapeCoords, myShapeLinePairs);
+
+  // strokeWeight(1);
+  // stroke(255, 0, 0);
+  // drawShape3d(myShapeCoords, myShapeLinePairs);
 }
 
 function draw() {
