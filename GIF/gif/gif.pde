@@ -1,6 +1,6 @@
 PImage source0;      // Source image 1
 PImage source1;      // Source image 2
-int totalFrames = 120;
+int totalFrames = 60;
 int counter = 0;
 
 float p = 0;
@@ -22,7 +22,7 @@ void draw(){
 }
 void myRender(float percent) {
   // Percentage goes from 0 to 1 then back to 0
-  p += percent;
+  p = percent;
   if (p > 1.0) noLoop();
 
   loadPixels();
