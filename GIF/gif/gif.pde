@@ -1,6 +1,6 @@
 PImage source0;      // Source image 1
 PImage source1;      // Source image 2
-int totalFrames = 60;
+int totalFrames = 6;
 int counter = 0;
 
 float p = 0;

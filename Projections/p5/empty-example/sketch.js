@@ -80,7 +80,7 @@ function drawPerspective(points, lines, o_view = false) {
     // let newPoints = multiply(isoMat, temp);
     // if (o_view == true) {
     //   console.log(newPoints);
-    // newPoints = multiply(isoMat, newPoints);
+    t // newPoints = multiply(isoMat, newPoints);
     //   console.log(newPoints);
     // }
     let x = [newPoints[0] / newPoints[3], newPoints[1] / newPoints[3]];

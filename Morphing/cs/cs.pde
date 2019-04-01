@@ -11,7 +11,7 @@ void setup() {
 
 void draw() {
   // Percentage goes from 0 to 1 then back to 0
-  p += 0.005;
+  p += 0.002;
   if (p > 1.0) noLoop();
 
   loadPixels();
